@@ -1,6 +1,5 @@
 import React, { useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
-// import logo_white from '../assets/logo_white.png';
 import logo_red from '../assets/logo_red_and_white.png';
 
 const Hero: React.FC = () => {
@@ -11,7 +10,6 @@ const Hero: React.FC = () => {
 
   return (
     <section id="home" ref={ref} style={{ position: 'relative', height: '100vh', overflow: 'hidden', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-      {/* Animated background blobs */}
       <div style={{ position: 'absolute', inset: 0, overflow: 'hidden' }}>
         <motion.div
           animate={{ scale: [1, 1.2, 1], rotate: [0, 15, 0] }}
@@ -33,49 +31,27 @@ const Hero: React.FC = () => {
             borderRadius: '60% 40% 30% 70% / 60% 30% 70% 40%',
           }}
         />
-        {/* Grid overlay */}
-        {/* <div style={{
-          position: 'absolute', inset: 0,
-          backgroundImage: 'linear-gradient(rgba(192,57,43,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(192,57,43,0.04) 1px, transparent 1px)',
-          backgroundSize: '80px 80px',
-        }} /> */}
       </div>
 
       <motion.div style={{ y, opacity, position: 'relative', zIndex: 2, textAlign: 'center', padding: '0 24px' }}>
-        {/* <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 2.8 }}
-          style={{ fontFamily: "'poppins', sans-serif", fontSize: 16, letterSpacing: '0.4em', color: '#9c241c', textTransform: 'uppercase', marginBottom: 24 }}
-        >
-          ✦ The Signature of Modern Brands ✦
-        </motion.div> */}
 
         <motion.h1
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.9, delay: 3.0, ease: 'easeOut' }}
           style={{
-            // fontFamily: "'Cormorant Garamond', serif",
-            // fontSize: 'clamp(72px, 12vw, 160px)',
-            // fontWeight: 300,
-            // lineHeight: 0.9,
-            // color: '#f5f0eb',
-            // letterSpacing: '-0.02em',
             display: 'flex',
             justifyContent: 'center',
             alignItems: 'center',
             marginBottom: 0,
           }}
         >
-          {/* illiora */}
-          {/* {logo_white} */}
           <img
 
           src={logo_red}
           alt="Illiora Logo"
           style={{
-            width: 'clamp(250px, 30vw, 500px)',
+            width: 'clamp(250px, 3vw, 500px)',
             height: 'auto',
             display: 'block',
 
@@ -99,11 +75,11 @@ const Hero: React.FC = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 3.4 }}
           style={{
-            fontFamily: "'Cormorant Garamond', serif",
-            // fontFamily: "'Poppins', sans-serif",
+            // fontFamily: "'Cormorant Garamond', serif",
+            fontFamily: "'Poppins', sans-serif",
             fontSize: 'clamp(28px, 24vw, 5px)',
             fontWeight: 300,
-            fontStyle: 'italic',
+            // fontStyle: 'italic',
             color: '#e0dcd7',
             letterSpacing: '0.04em',
             marginBottom: 48,

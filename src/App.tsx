@@ -8,7 +8,7 @@ import Services from './components/Services';
 import Works from './components/Works';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
-import './index.css';
+// import './index.css';
 import logo_red from './assets/logo_red_and_white.png';
 import { Box, Fab, Tooltip } from '@mui/material';
 

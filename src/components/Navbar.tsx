@@ -1,17 +1,86 @@
 import React, { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import {
+  Box,
+  List,
+  ListItem,
+  IconButton,
+  Link as MuiLink,
+} from "@mui/material";
+import { styled } from "@mui/material/styles";
 import logo_white from "../assets/logo_white.png";
-const navItems = [
+
+// ─── Google Fonts ────────────────────────────────────────────────────────────
+// Add to your index.html <head>:
+// <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+
+interface NavItem {
+  label: string;
+  href: string;
+}
+
+const navItems: NavItem[] = [
   { label: "About", href: "#about" },
   { label: "Services", href: "#services" },
-  // { label: "Experience", href: "#experience" },
   { label: "Works", href: "#works" },
-  // { label: "Contact", href: "#contact" },
 ];
 
+// ─── Styled Components ───────────────────────────────────────────────────────
+
+const NavLink = styled(MuiLink)({
+  fontFamily: "'Montserrat', sans-serif",
+  fontSize: 11,
+  letterSpacing: "0.2em",
+  textTransform: "uppercase",
+  color: "#ffffff",
+  textDecoration: "none",
+  position: "relative",
+  transition: "color 0.3s",
+  "&:hover": {
+    color: "#c0392b",
+  },
+});
+
+const ContactButton = styled(MuiLink)({
+  fontFamily: "'Montserrat', sans-serif",
+  fontSize: 11,
+  letterSpacing: "0.2em",
+  textTransform: "uppercase",
+  color: "#f5f0eb",
+  background: "#9c241c",
+  padding: "10px 24px",
+  textDecoration: "none",
+  display: "inline-block",
+  transition: "all 0.3s",
+  "&:hover": {
+    background: "#e74c3c",
+    color: "#f5f0eb",
+  },
+});
+
+const MobileNavLink = styled(motion.a)({
+  fontFamily: "'Cormorant Garamond', serif",
+  fontSize: 44,
+  fontWeight: 300,
+  letterSpacing: "0.08em",
+  color: "#ffffff",
+  textDecoration: "none",
+  display: "block",
+});
+
+const HamburgerLine = styled(motion.span)<{ width?: number }>(({ width = 28 }) => ({
+  display: "block",
+  width,
+  height: 1,
+  background: "#f5f0eb",
+  transformOrigin: "center",
+}));
+
+// ─── Component ───────────────────────────────────────────────────────────────
+
 const Navbar: React.FC = () => {
-  const [scrolled, setScrolled] = useState(false);
-  const [menuOpen, setMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState<boolean>(false);
+  const [menuOpen, setMenuOpen] = useState<boolean>(false);
 
   useEffect(() => {
     const handler = () => setScrolled(window.scrollY > 60);
@@ -43,93 +112,60 @@ const Navbar: React.FC = () => {
         }}
       >
         {/* Logo */}
-        {/* <a href="#home" style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: 28, fontWeight: 600, letterSpacing: '0.12em', color: '#ffffff' }}>
-          illiora<span style={{ color: '#af6058', fontSize: 8, verticalAlign: 'super', letterSpacing: '0.3em', fontFamily: "'Montserrat', sans-serif", fontWeight: 300 }}>STUDIO</span>
-        </a> */}
-        <a href="#home" style={{ display: "flex", alignItems: "center" }}>
-          <img
+        <MuiLink href="#home" sx={{ display: "flex", alignItems: "center" }}>
+          <Box
+            component="img"
             src={logo_white}
             alt="Illiora Studio Logo"
-            style={{
-              height: 50, // adjust this based on your design
-              width: "auto",
-              objectFit: "contain",
-            }}
+            sx={{ height: 50, width: "auto", objectFit: "contain" }}
           />
-        </a>
+        </MuiLink>
 
         {/* Desktop Nav */}
-        <ul
-          style={{
+        <List
+          className="desktop-nav"
+          sx={{
             display: "flex",
-            gap: 40,
+            gap: "40px",
             listStyle: "none",
             alignItems: "center",
+            padding: 0,
+            margin: 0,
           }}
-          className="desktop-nav"
         >
           {navItems.map((item) => (
-            <li key={item.label}>
-              <a
-                href={item.href}
-                style={{
-                  fontFamily: "'Montserrat', sans-serif",
-                  fontSize: 11,
-                  letterSpacing: "0.2em",
-                  textTransform: "uppercase",
-                  color: "#ffffff",
-                  transition: "color 0.3s",
-                  position: "relative",
-                }}
-                onMouseEnter={(e) => (e.currentTarget.style.color = "#c0392b")}
-                onMouseLeave={(e) => (e.currentTarget.style.color = "#b0a89e")}
-              >
-                {item.label}
-              </a>
-            </li>
+            <ListItem key={item.label} sx={{ padding: 0, width: "auto" }}>
+              <NavLink href={item.href}  sx={{
+        textTransform: "capitalize",
+      }}>{item.label}</NavLink>
+            </ListItem>
           ))}
-          <li>
-            <a
-              href="#contact"
-              style={{
-                fontFamily: "'Montserrat', sans-serif",
-                fontSize: 11,
-                letterSpacing: "0.2em",
-                textTransform: "uppercase",
-                color: "#f5f0eb",
-                background: "#9c241c",
-                padding: "10px 24px",
-                transition: "all 0.3s",
-              }}
-              onMouseEnter={(e) => {
-                (e.currentTarget as HTMLElement).style.background = "#e74c3c";
-              }}
-              onMouseLeave={(e) => {
-                (e.currentTarget as HTMLElement).style.background = "#c0392b";
-              }}
-            >
-              Contact Us
-            </a>
-          </li>
-        </ul>
+          <ListItem sx={{ padding: 0, width: "auto" }}>
+            <ContactButton href="#contact">Contact Us</ContactButton>
+          </ListItem>
+        </List>
 
         {/* Hamburger */}
-        <button
+        <IconButton
           onClick={() => setMenuOpen(!menuOpen)}
-          style={{
+          className="hamburger"
+          disableRipple
+          sx={{
             background: "none",
             border: "none",
             cursor: "none",
             display: "flex",
             flexDirection: "column",
-            gap: 5,
-            padding: 4,
+            gap: "5px",
+            padding: "4px",
+            borderRadius: 0,
+            "&:hover": { background: "none" },
           }}
-          className="hamburger"
         >
           {[0, 1, 2].map((i) => (
-            <motion.span
+            <HamburgerLine
               key={i}
+              width={i === 1 ? 20 : 28}
               animate={
                 menuOpen
                   ? i === 0
@@ -139,16 +175,9 @@ const Navbar: React.FC = () => {
                       : { rotate: -45, y: -9 }
                   : { rotate: 0, y: 0, opacity: 1 }
               }
-              style={{
-                display: "block",
-                width: i === 1 ? 20 : 28,
-                height: 1,
-                background: "#f5f0eb",
-                transformOrigin: "center",
-              }}
             />
           ))}
-        </button>
+        </IconButton>
       </motion.nav>
 
       {/* Mobile Menu */}
@@ -172,23 +201,16 @@ const Navbar: React.FC = () => {
             }}
           >
             {navItems.map((item, i) => (
-              <motion.a
+              <MobileNavLink
                 key={item.label}
                 href={item.href}
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: i * 0.1 + 0.1 }}
                 onClick={() => setMenuOpen(false)}
-                style={{
-                  fontFamily: "'Cormorant Garamond', serif",
-                  fontSize: 44,
-                  fontWeight: 300,
-                  letterSpacing: "0.08em",
-                  color: "#ffffff",
-                }}
               >
                 {item.label}
-              </motion.a>
+              </MobileNavLink>
             ))}
           </motion.div>
         )}

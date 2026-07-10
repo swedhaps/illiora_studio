@@ -95,29 +95,31 @@ const Hero: React.FC = () => {
           style={{ display: 'flex', gap: 16, justifyContent: 'center', flexWrap: 'wrap' }}
         >
           <a
-            href="#works"
-            style={{
-              fontFamily: "'Montserrat', sans-serif", fontSize: 11, letterSpacing: '0.25em',
-              textTransform: 'uppercase', color: '#f5f0eb', background: '#9c241c',
-              padding: '16px 40px', transition: 'all 0.3s', display: 'inline-block',
-            }}
-            onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.background = '#e74c3c'; }}
-            onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.background = '#9c241c'; }}
-          >
-            View Works
-          </a>
+ href="#works"
+  style={{
+    fontFamily: "'Montserrat', sans-serif", fontSize: 11, letterSpacing: '0.25em',
+    textTransform: 'uppercase', color: '#f5f0eb', background: '#9c241c',
+    padding: '16px 40px', transition: 'all 0.3s', display: 'inline-block',
+    borderRadius: '24px',
+  }}
+  onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.background = '#e74c3c'; }}
+  onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.background = '#9c241c'; }}
+>
+  View Works
+</a>
           <a
-            href="#contact"
-            style={{
-              fontFamily: "'Montserrat', sans-serif", fontSize: 11, letterSpacing: '0.25em',
-              textTransform: 'uppercase', color: '#e86657', border: '1px solid #c0392b',
-              padding: '16px 40px', transition: 'all 0.3s', display: 'inline-block',
-            }}
-            onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.borderColor = '#c0392b'; (e.currentTarget as HTMLElement).style.color = '#f5f0eb'; (e.currentTarget as HTMLElement).style.background = 'rgba(192,57,43,0.1)'; }}
-            onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.borderColor = 'rgba(192,57,43,0.4)'; (e.currentTarget as HTMLElement).style.color = '#c0392b'; (e.currentTarget as HTMLElement).style.background = 'transparent'; }}
-          >
-            Let's Talk
-          </a>
+ href="#contact"
+  style={{
+    fontFamily: "'Montserrat', sans-serif", fontSize: 11, letterSpacing: '0.25em',
+    textTransform: 'uppercase', color: '#e86657', border: '1px solid #c0392b',
+    padding: '16px 40px', transition: 'all 0.3s', display: 'inline-block',
+    borderRadius: '24px',
+  }}
+  onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.borderColor = '#c0392b'; (e.currentTarget as HTMLElement).style.color = '#f5f0eb'; (e.currentTarget as HTMLElement).style.background = 'rgba(192,57,43,0.1)'; }}
+  onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.borderColor = 'rgba(192,57,43,0.4)'; (e.currentTarget as HTMLElement).style.color = '#c0392b'; (e.currentTarget as HTMLElement).style.background = 'transparent'; }}
+>
+  Let's Talk
+</a>
         </motion.div>
 
         {/* Scroll indicator */}

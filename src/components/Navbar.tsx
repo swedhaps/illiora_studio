@@ -51,6 +51,7 @@ const ContactButton = styled(MuiLink)({
   padding: "10px 24px",
   textDecoration: "none",
   display: "inline-block",
+  borderRadius: "24px", // curved vertices
   transition: "all 0.3s",
   "&:hover": {
     background: "#e74c3c",

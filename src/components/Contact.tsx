@@ -482,26 +482,26 @@ const Contact: React.FC = () => {
               )}
 
               {/* Submit */}
-              <Button
-                type="submit"
-                disabled={loading}
-                sx={{
-                  fontFamily: "'Poppins', sans-serif",
-                  fontSize: 11,
-                  letterSpacing: '0.25em',
-                  textTransform: 'uppercase',
-                  color: '#f5f0eb',
-                  background: '#c0392b',
-                  border: 'none',
-                  padding: '18px 40px',
-                  cursor: loading ? 'wait' : 'none',
-                  transition: 'all 0.3s',
-                  alignSelf: 'flex-start',
-                  borderRadius: 0,
-                  '&:hover': { background: '#e74c3c' },
-                  '&.Mui-disabled': { background: 'rgba(192,57,43,0.4)', color: 'rgba(245,240,235,0.5)' },
-                }}
-              >
+             <Button
+  type="submit"
+  disabled={loading}
+  sx={{
+    fontFamily: "'Poppins', sans-serif",
+    fontSize: 11,
+    letterSpacing: '0.25em',
+    textTransform: 'uppercase',
+    color: '#f5f0eb',
+    background: '#c0392b',
+    border: 'none',
+    padding: '18px 40px',
+    cursor: loading ? 'wait' : 'none',
+    transition: 'all 0.3s',
+    alignSelf: 'flex-start',
+    borderRadius: '24px',
+    '&:hover': { background: '#e74c3c' },
+    '&.Mui-disabled': { background: 'rgba(192,57,43,0.4)', color: 'rgba(245,240,235,0.5)' },
+  }}
+>
                 {loading ? (
                   <Box sx={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
                     <CircularProgress size={14} sx={{ color: '#f5f0eb' }} />

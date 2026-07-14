@@ -118,7 +118,7 @@ const Navbar: React.FC = () => {
             component="img"
             src={logo_white}
             alt="Illiora Studio Logo"
-            sx={{ height: 34, width: "auto", objectFit: "contain" }}
+            sx={{ height: 26, width: "auto", objectFit: "contain" }}
           />
         </MuiLink>
 

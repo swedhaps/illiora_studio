@@ -141,11 +141,11 @@ const Tag = styled("span")({
   whiteSpace: "nowrap" as const,
 });
 
-const ArrowIndicator = styled(Typography)({
-  color: "#c0392b",
-  fontSize: 20,
-  fontFamily: "var(--font-display, 'Cormorant Garamond', serif)",
-});
+// const ArrowIndicator = styled(Typography)({
+//   color: "#c0392b",
+//   fontSize: 20,
+//   fontFamily: "var(--font-display, 'Cormorant Garamond', serif)",
+// });
 
 const BottomBorder = styled(Box)({
   borderTop: "1px solid rgba(192,57,43,0.12)",
@@ -264,7 +264,7 @@ const Services: React.FC = () => {
                 }}
                 transition={{ duration: 0.3 }}
               >
-                <ArrowIndicator>→</ArrowIndicator>
+                {/* <ArrowIndicator>→</ArrowIndicator> */}
               </motion.div>
             </motion.div>
           ))}

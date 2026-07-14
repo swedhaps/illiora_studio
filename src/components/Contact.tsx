@@ -220,7 +220,7 @@ const Contact: React.FC = () => {
           </Typography>
 
           {/* Contact details */}
-          <Box sx={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
+          {/* <Box sx={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
             {[
               { label: 'Email', value: 'hello@illiora.studio', href: 'mailto:hello@illiora.studio' },
               { label: 'Instagram', value: '@illiora.studio', href: 'https://www.instagram.com/illiora.studio/' },
@@ -264,7 +264,7 @@ const Contact: React.FC = () => {
                 </Link>
               </Box>
             ))}
-          </Box>
+          </Box> */}
         </Grid>
 
         {/* Right: Form */}
@@ -508,7 +508,7 @@ const Contact: React.FC = () => {
                     Sending...
                   </Box>
                 ) : (
-                  'Send Message →'
+                  'Send Message'
                 )}
               </Button>
             </Box>

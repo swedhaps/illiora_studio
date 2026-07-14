@@ -47,18 +47,18 @@ const Footer: React.FC = () => {
             </div>
           </div>
           <div style={{ display: "flex", gap: 24 }}>
-            {[
+            {/* {[
               {
                 label: "Instagram",
                 href: "https://www.instagram.com/illiora.studio/",
               },
               { label: "Email", href: "mailto:hello@illiora.studio" },
-            ].map((link) => (
+            ].map((link) => ( */}
               <a
-                key={link.label}
-                href={link.href}
-                target="_blank"
-                rel="noopener noreferrer"
+                // key={link.label}
+                // href={link.href}
+                // target="_blank"
+                // rel="noopener noreferrer"
                 style={{
                   fontFamily: "'Poppins', sans-serif",
                   fontSize: 9,
@@ -70,9 +70,10 @@ const Footer: React.FC = () => {
                 onMouseEnter={(e) => (e.currentTarget.style.color = "#c0392b")}
                 onMouseLeave={(e) => (e.currentTarget.style.color = "#9c9c97")}
               >
-                {link.label}
+                {/* {link.label} */}
+                AVAILABLE FOR PROJECTS
               </a>
-            ))}
+            {/* ))} */}
           </div>
         </div>
 
@@ -138,11 +139,12 @@ const Footer: React.FC = () => {
               fontSize: 10,
               color: "#c2c2c2",
               letterSpacing: "0.1em",
+             
             }}
           >
             © {new Date().getFullYear()} Illiora Studio. All rights reserved.
           </p>
-          <p
+          {/* <p
             style={{
               fontFamily: "'Poppins', sans-serif",
               fontSize: 10,
@@ -151,7 +153,7 @@ const Footer: React.FC = () => {
             }}
           >
             Available for projects
-          </p>
+          </p> */}
         </div>
       </div>
     </footer>

@@ -1,4 +1,5 @@
-import work1 from '../assets/works/work1.jpeg';
+import flyer1 from '../assets/works/flyer1.jpeg';
+import flyer2 from '../assets/works/flyer2.jpeg';
 import visiting1 from '../assets/works/visiting1.jpeg';
 import visiting2 from '../assets/works/visiting2.jpeg';
 import visiting3 from '../assets/works/visiting3.jpeg';
@@ -83,7 +84,7 @@ export const works: Work[] = [
   id: 1,
   title: "Restaurant Menu",
   category: "Menu",
-  tag: "Food",
+  tag: "Bee Yen",
   year: "2026",
   colors: ["#111111", "#c9a96e", "#f5f0eb"],
   image: menu2, // Thumbnail shown in the Works grid
@@ -94,21 +95,21 @@ export const works: Work[] = [
  
   {
     id: 2,
-    title: "Aurum Finance",
+    title: "Nurse-Led Complex Home care",
     category: "Brochure",
-    tag: "Corporate",
+    tag: "Revive Rise",
     year: "2023",
     colors: ["#111111", "#c9a96e", "#f5f0eb"],
-    image: brochure1, // thumbnail shown in the Works grid
+    image: brochure2, // thumbnail shown in the Works grid
     gallery: [brochure1, brochure2, brochure3, brochure4], // full set shown on the detail page
     description: "A corporate brochure system balancing trust and prestige for a boutique financial advisory firm.",
   },
 
   {
     id: 3,
-    title: "BeeYen",
+    title: "BeeYen Business Card",
     category: "Visiting Card",
-    tag: "Food",
+    tag: "Bee Yen",
     year: "2026",
     colors: ["#0d0d0d", "#c0392b", "#f5f0eb"],
     image: visiting1, // thumbnail shown in the Works grid — pick whichever looks best as a cover
@@ -118,9 +119,9 @@ export const works: Work[] = [
 
 {
   id: 4,
-  title: "Product Catalogue",
+  title: "The Hoper Atelier",
   category: "Catalogue",
-  tag: "Corporate",
+  tag: "Hoper",
   year: "2026",
   colors: ["#111111", "#c9a96e", "#f5f0eb"],
   image: catalogue1,
@@ -128,10 +129,30 @@ export const works: Work[] = [
   description: "A modern multi-page product catalogue designed to showcase products with a premium layout, strong visual hierarchy, and consistent branding.",
 },
 {
+  id: 15,
+  title: "Campaign Poster Design",
+  category: "Poster",
+  tag: "Bee yen",
+  year: "2026",
+  colors: ["#111111", "#c9a96e", "#f5f0eb"],
+  image: poster18, // Thumbnail shown in the Works grid
+  gallery: [
+    poster18,
+    poster19,
+    poster20,
+    poster21,
+    poster22,
+    poster23,
+    poster24,
+  ], // Full poster collection
+  description:
+    "A premium poster design collection featuring impactful visuals, bold typography, and modern layouts crafted for branding, events, and promotional campaigns.",
+},
+{
   id: 5,
-  title: "Product Label",
+  title: "Gardene Product Label Collection",
   category: "Label",
-  tag: "Packaging",
+  tag: "Gardene",
   year: "2026",
   colors: ["#111111", "#c9a96e", "#f5f0eb"],
   image: label1, // Thumbnail shown in the Works grid
@@ -140,9 +161,9 @@ export const works: Work[] = [
 },
 {
   id: 6,
-  title: "Corporate Brochure",
+  title: "The Journey of Success",
   category: "Brochure",
-  tag: "Corporate",
+  tag: "Thalim",
   year: "2026",
   colors: ["#111111", "#c9a96e", "#f5f0eb"],
   image: brochure5, // Thumbnail
@@ -162,7 +183,7 @@ export const works: Work[] = [
   id: 7,
   title: "Corporate Brochure",
   category: "Brochure",
-  tag: "Corporate",
+  tag: "Cader",
   year: "2026",
   colors: ["#111111", "#c9a96e", "#f5f0eb"],
   image: brochure12, // Thumbnail
@@ -175,12 +196,12 @@ export const works: Work[] = [
   description:
     "A premium multi-page corporate brochure designed with modern layouts, elegant typography, and a strong visual hierarchy.",
 },
-  { id: 8, title: "Noir Coffee Co.",  category: "Flyer",         tag: "Brand Identity",   year: "2024", colors: ["#1a1a1a", "#c9a96e", "#f5f0eb"], image: work1, description: "A minimalist brand identity for a specialty coffee roaster, blending dark elegance with warm gold accents." },
+  { id: 8, title: "Grand Opening Flyer",  category: "Flyer",   gallery:[    flyer1, flyer2]   ,   tag: "Flyer",   year: "2025", colors: ["#1a1a1a", "#c9a96e", "#f5f0eb"], image: flyer1, description: "A minimalist brand identity for a specialty coffee roaster, blending dark elegance with warm gold accents." },
   {
   id: 9,
   title: "Corporate Letterhead",
   category: "Letter Head",
-  tag: "Corporate",
+  tag: "Cocoa buds",
   year: "2026",
   colors: ["#111111", "#c9a96e", "#f5f0eb"],
   image: letterhead1, // Thumbnail shown in the Works grid
@@ -193,57 +214,10 @@ export const works: Work[] = [
     "A premium corporate letterhead collection designed with clean layouts, refined typography, and a professional brand identity.",
 },
 {
-  id: 10,
-  title: "Package Design",
-  category: "Packaging",
-  tag: "Brand Identity",
-  year: "2026",
-  colors: ["#111111", "#c9a96e", "#f5f0eb"],
-  image: package1, // Thumbnail shown in the Works grid
-  gallery: [
-    package1,
-    package2,
-  ], // Full set shown on the detail page
-  description:
-    "A premium packaging design collection crafted to elevate product presentation through modern layouts, distinctive branding, and visually impactful packaging solutions.",
-},
-{
-  id: 11,
-  title: "Package Design",
-  category: "Packaging",
-  tag: "Brand Identity",
-  year: "2026",
-  colors: ["#111111", "#c9a96e", "#f5f0eb"],
-  image: package3, // Thumbnail shown in the Works grid
-  gallery: [
-    package3,
-  ], // Single packaging design
-  description:
-    "A premium packaging design created with a clean visual identity, modern aesthetics, and strong shelf appeal.",
-},
-{
-  id: 12,
-  title: "Package Design",
-  category: "Packaging",
-  tag: "Brand Identity",
-  year: "2026",
-  colors: ["#111111", "#c9a96e", "#f5f0eb"],
-  image: package5, // Thumbnail shown in the Works grid
-  gallery: [
-    package4,
-    package5,
-    package6,
-    package7,
-    package8,
-  ], // Full packaging collection
-  description:
-    "A premium packaging design collection featuring modern branding, clean layouts, and visually engaging packaging concepts tailored to enhance product presentation and shelf appeal.",
-},
-{
   id: 13,
-  title: "Poster Design",
+  title: "Ice Cream Poster Design",
   category: "Poster",
-  tag: "Print Design",
+  tag: "Cream Likes",
   year: "2026",
   colors: ["#111111", "#c9a96e", "#f5f0eb"],
   image: poster1, // Thumbnail shown in the Works grid
@@ -263,9 +237,9 @@ export const works: Work[] = [
 },
 {
   id: 14,
-  title: "Poster Design",
+  title: "Campaign Poster Design",
   category: "Poster",
-  tag: "Print Design",
+  tag: "D Laban",
   year: "2026",
   colors: ["#111111", "#c9a96e", "#f5f0eb"],
   image: poster14, // Thumbnail shown in the Works grid
@@ -283,23 +257,52 @@ export const works: Work[] = [
     "A premium poster design collection showcasing creative layouts, striking visuals, and modern typography for promotional and branding campaigns.",
 },
 {
-  id: 15,
-  title: "Poster Design",
-  category: "Poster",
-  tag: "Print Design",
+  id: 10,
+  title: "Agarbati Package Design",
+  category: "Packaging",
+  tag: "London bridge",
   year: "2026",
   colors: ["#111111", "#c9a96e", "#f5f0eb"],
-  image: poster18, // Thumbnail shown in the Works grid
+  image: package1, // Thumbnail shown in the Works grid
   gallery: [
-    poster18,
-    poster19,
-    poster20,
-    poster21,
-    poster22,
-    poster23,
-    poster24,
-  ], // Full poster collection
+    package1,
+    package2,
+  ], // Full set shown on the detail page
   description:
-    "A premium poster design collection featuring impactful visuals, bold typography, and modern layouts crafted for branding, events, and promotional campaigns.",
+    "A premium packaging design collection crafted to elevate product presentation through modern layouts, distinctive branding, and visually impactful packaging solutions.",
 },
+{
+  id: 11,
+  title: "Kerala Achappam Package Design",
+  category: "Packaging",
+  tag: "Foodies",
+  year: "2026",
+  colors: ["#111111", "#c9a96e", "#f5f0eb"],
+  image: package3, // Thumbnail shown in the Works grid
+  gallery: [
+    package3,
+  ], // Single packaging design
+  description:
+    "A premium packaging design created with a clean visual identity, modern aesthetics, and strong shelf appeal.",
+},
+{
+  id: 12,
+  title: "Thalim Package Design",
+  category: "Packaging",
+  tag: "Thalim",
+  year: "2026",
+  colors: ["#111111", "#c9a96e", "#f5f0eb"],
+  image: package5, // Thumbnail shown in the Works grid
+  gallery: [
+    package4,
+    package5,
+    package6,
+    package7,
+    package8,
+  ], // Full packaging collection
+  description:
+    "A premium packaging design collection featuring modern branding, clean layouts, and visually engaging packaging concepts tailored to enhance product presentation and shelf appeal.",
+},
+
+
 ];

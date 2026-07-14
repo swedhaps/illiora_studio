@@ -64,18 +64,17 @@ const FilterButton = styled("button")<{ active: boolean }>(({ active }) => ({
 }));
 
 const CardImageWrapper = styled(Box)({
-  position: "relative",
-  paddingBottom: "110%",
+  background: "#0d0d0d",
+  display: "flex",
+  alignItems: "center",
+  justifyContent: "center",
   overflow: "hidden",
-  background: "#111",
 });
 
 const CardImage = styled("img")({
-  position: "absolute",
-  inset: 0,
   width: "100%",
-  height: "100%",
-  objectFit: "cover",
+  height: "auto",
+  display: "block",
   transition: "transform 0.6s ease",
 });
 
@@ -146,6 +145,7 @@ const CtaLink = styled("a")({
   display: "inline-block",
   transition: "all 0.3s",
   textDecoration: "none",
+  borderRadius: "999px", // <-- Add this
   "&:hover": {
     background: "rgba(192,57,43,0.1)",
     borderColor: "#c0392b",
@@ -194,7 +194,7 @@ const WorkCard: React.FC<WorkCardProps> = ({ work, index, inView }) => {
         <Box>
           <CardTitle>{work.title}</CardTitle>
           <CardMeta>
-            {work.category} · {work.tag}
+           {work.tag}
           </CardMeta>
         </Box>
         <CardYear>{work.year}</CardYear>
@@ -288,7 +288,7 @@ const Works: React.FC = () => {
             target="_blank"
             rel="noopener noreferrer"
           >
-            View All on Instagram ↗
+            View All on Instagram
           </CtaLink>
         </motion.div>
       </Box>

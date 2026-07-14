@@ -126,24 +126,26 @@ const ServiceDesc = styled("p")({
   paddingTop: 4,
 });
 
-// Tag pill — rounded corners added here
+// Tag pill — contained beige background, black text
 const Tag = styled("span")({
   fontFamily: "var(--font-body, 'Poppins', sans-serif)",
   fontSize: 9,
+  fontWeight: 600,
   letterSpacing: "0.2em",
-  color: "#c0392b",
-  border: "1px solid rgba(192,57,43,0.3)",
-  padding: "4px 12px",
+  color: "#0d0d0d",
+  background: "#f5f0eb",
+  border: "none",
+  padding: "5px 14px",
   textTransform: "uppercase",
   borderRadius: "999px", // ← curved / pill shape
   whiteSpace: "nowrap" as const,
 });
 
-const ArrowIndicator = styled(Typography)({
-  color: "#c0392b",
-  fontSize: 20,
-  fontFamily: "var(--font-display, 'Cormorant Garamond', serif)",
-});
+// const ArrowIndicator = styled(Typography)({
+//   color: "#c0392b",
+//   fontSize: 20,
+//   fontFamily: "var(--font-display, 'Cormorant Garamond', serif)",
+// });
 
 const BottomBorder = styled(Box)({
   borderTop: "1px solid rgba(192,57,43,0.12)",
@@ -262,7 +264,7 @@ const Services: React.FC = () => {
                 }}
                 transition={{ duration: 0.3 }}
               >
-                <ArrowIndicator>→</ArrowIndicator>
+                {/* <ArrowIndicator>→</ArrowIndicator> */}
               </motion.div>
             </motion.div>
           ))}

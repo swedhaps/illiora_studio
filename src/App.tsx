@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import About from './components/About';
@@ -8,7 +9,8 @@ import Services from './components/Services';
 import Works from './components/Works';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
-// import './index.css';
+import WorkDetail from './pages/WorkDetail';
+import './index.css';
 import logo_red from './assets/logo_red_and_white.png';
 import { Box, Fab, Tooltip } from '@mui/material';
 
@@ -34,15 +36,45 @@ const EmailSVG = () => (
 );
 
 const fabActions = [
-  { icon: <InstagramSVG />, label: 'Instagram', href: 'https://www.instagram.com/illiora.studio/', title: '@illiora.studio' },
-  { icon: <PhoneSVG />,     label: 'Call',      href: 'tel:+919999999999',                        title: 'Call Us' },
-  { icon: <EmailSVG />,     label: 'Email',     href: 'mailto:hello@illiora.studio',              title: 'hello@illiora.studio' },
+  {
+    icon: <InstagramSVG />,
+    label: "Instagram",
+    href: "https://www.instagram.com/illiora.studio/",
+  },
+  {
+    icon: <PhoneSVG />,
+    label: "WhatsApp",
+    href: "https://wa.me/919947056104", // WhatsApp chat
+  },
+  {
+  icon: <EmailSVG />,
+  label: "Email",
+  href:
+    "https://mail.google.com/mail/?view=cm&fs=1&to=illiorastudio111@gmail.com&su=Project%20Enquiry",
+}
 ];
+
+// ─── Homepage: bundles all the single-page sections ───────────────────────────
+function Home() {
+  return (
+    <>
+      <Hero />
+      <About />
+      <Services />
+      {/* <Experience /> */}
+      <Works />
+      <Contact />
+      <Footer />
+    </>
+  );
+}
 
 function App() {
   const [cursorPos, setCursorPos] = useState({ x: -100, y: -100 });
   const [followerPos, setFollowerPos] = useState({ x: -100, y: -100 });
-  const [loading, setLoading] = useState(true);  useEffect(() => {
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
     const timer = setTimeout(() => setLoading(false), 2400);
     return () => clearTimeout(timer);
   }, []);
@@ -105,13 +137,10 @@ function App() {
 
       <div style={{ cursor: 'none' }}>
         <Navbar />
-        <Hero />
-        <About />
-        <Services />
-        {/* <Experience /> */}
-        <Works />
-        <Contact />
-        <Footer />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/works/:id" element={<WorkDetail />} />
+        </Routes>
       </div>
 
       {/* FABs — always visible */}
@@ -128,35 +157,34 @@ function App() {
         }}
       >
         {fabActions.map((action) => (
-          <Tooltip key={action.label} title={action.title} placement="left" arrow>
-            <Fab
-              size="small"
-              href={action.href}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label={action.label}
-              sx={{
-                background: 'rgba(18,18,18,0.92)',
-                border: '1px solid rgba(192,57,43,0.35)',
-                color: '#c0392b',
-                boxShadow: '0 4px 20px rgba(0,0,0,0.5)',
-                cursor: 'none',
-                width: 44,
-                height: 44,
-                backdropFilter: 'blur(8px)',
-                transition: 'all 0.25s ease',
-                '&:hover': {
-                  background: '#c0392b',
-                  color: '#f5f0eb',
-                  borderColor: '#c0392b',
-                  transform: 'scale(1.12)',
-                  boxShadow: '0 6px 24px rgba(192,57,43,0.4)',
-                },
-              }}
-            >
-              {action.icon}
-            </Fab>
-          </Tooltip>
+<Fab
+  key={action.label}
+  size="small"
+  href={action.href}
+  target="_blank"
+  rel="noopener noreferrer"
+  aria-label={action.label}
+  sx={{
+    background: "rgba(18,18,18,0.92)",
+    border: "1px solid rgba(192,57,43,0.35)",
+    color: "#c0392b",
+    boxShadow: "0 4px 20px rgba(0,0,0,0.5)",
+    cursor: "none",
+    width: 44,
+    height: 44,
+    backdropFilter: "blur(8px)",
+    transition: "all 0.25s ease",
+    "&:hover": {
+      background: "#c0392b",
+      color: "#f5f0eb",
+      borderColor: "#c0392b",
+      transform: "scale(1.12)",
+      boxShadow: "0 6px 24px rgba(192,57,43,0.4)",
+    },
+  }}
+>
+  {action.icon}
+</Fab>
         ))}
       </Box>
     </>

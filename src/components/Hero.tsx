@@ -9,7 +9,7 @@ const Hero: React.FC = () => {
   const opacity = useTransform(scrollYProgress, [0, 0.6], [1, 0]);
 
   return (
-    <section id="home" ref={ref} style={{ position: 'relative', height: '100vh', overflow: 'hidden', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+    <section id="home" ref={ref} style={{ position: 'relative', height: '100vh', overflow: 'hidden' }}>
       <div style={{ position: 'absolute', inset: 0, overflow: 'hidden' }}>
         <motion.div
           animate={{ scale: [1, 1.2, 1], rotate: [0, 15, 0] }}
@@ -33,8 +33,26 @@ const Hero: React.FC = () => {
         />
       </div>
 
-      <motion.div style={{ y, opacity, position: 'relative', zIndex: 2, textAlign: 'center', padding: '0 24px' }}>
-
+      {/* Centered logo + tagline block — vertically centered in the upper/middle portion of the section */}
+      <motion.div
+        style={{
+          y,
+          opacity,
+          position: 'absolute',
+          top: 0,
+          left: 0,
+          right: 0,
+          bottom: 0,
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
+          justifyContent: 'center',
+          zIndex: 2,
+          textAlign: 'center',
+          padding: '0 24px',
+          paddingBottom: 'clamp(120px, 16vw, 200px)', // reserve room so this block sits above the bottom bar
+        }}
+      >
         <motion.h1
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
@@ -47,47 +65,50 @@ const Hero: React.FC = () => {
           }}
         >
           <img
-
-          src={logo_red}
-          alt="Illiora Logo"
-          style={{
-            width: 'clamp(250px, 3vw, 500px)',
-            height: 'auto',
-            display: 'block',
-
-          }}
-          ></img>
+            src={logo_red}
+            alt="Illiora Logo"
+            style={{
+              width: 'clamp(250px, 3vw, 500px)',
+              height: 'auto',
+              display: 'block'
+            }}
+          />
         </motion.h1>
-
-        <motion.div
-          initial={{ opacity: 0, scaleX: 0 }}
-          animate={{ opacity: 1, scaleX: 1 }}
-          transition={{ duration: 0.8, delay: 3.3 }}
-          style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 16, marginBottom: 8 }}
-        >
-          {/* <div style={{ height: 1, width: 80, background: 'linear-gradient(90deg, transparent, #c0392b)' }} /> */}
-          {/* <span style={{ fontFamily: "'Montserrat', sans-serif", fontSize: 10, letterSpacing: '0.5em', color: '#f9f2ec', textTransform: 'uppercase' }}>The Design Studio</span> */}
-          {/* <div style={{ height: 1, width: 80, background: 'linear-gradient(90deg, #c0392b, transparent)' }} /> */}
-        </motion.div>
 
         <motion.h2
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 3.4 }}
           style={{
-            // fontFamily: "'Cormorant Garamond', serif",
             fontFamily: "'Poppins', sans-serif",
-            fontSize: 'clamp(28px, 24vw, 5px)',
+            fontSize: 'clamp(24px, 24vw, 5px)',
             fontWeight: 300,
-            // fontStyle: 'italic',
-            color: '#e0dcd7',
+            color: '#8e8e8e',
             letterSpacing: '0.04em',
-            marginBottom: 48,
+            margin: 0,
+            // margin: 0,
+marginTop: '26px', 
           }}
         >
-          The Signature of Modern Brands 
+          The Signature of Modern Brands
         </motion.h2>
+      </motion.div>
 
+      {/* Bottom bar — buttons + scroll indicator, anchored to the bottom of the hero section */}
+      <div
+        style={{
+          position: 'absolute',
+          left: 0,
+          right: 0,
+          bottom: 'clamp(48px, 8vw, 96px)',
+          zIndex: 2,
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
+          gap: 56,
+          padding: '0 24px',
+        }}
+      >
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -97,9 +118,10 @@ const Hero: React.FC = () => {
           <a
             href="#works"
             style={{
-              fontFamily: "'Montserrat', sans-serif", fontSize: 11, letterSpacing: '0.25em',
+              fontFamily: "'Montserrat', sans-serif", fontSize: 10, letterSpacing: '0.2em',
               textTransform: 'uppercase', color: '#f5f0eb', background: '#9c241c',
-              padding: '16px 40px', transition: 'all 0.3s', display: 'inline-block',
+              padding: '11px 28px', transition: 'all 0.3s', display: 'inline-block',
+              borderRadius: '20px',
             }}
             onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.background = '#e74c3c'; }}
             onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.background = '#9c241c'; }}
@@ -109,9 +131,10 @@ const Hero: React.FC = () => {
           <a
             href="#contact"
             style={{
-              fontFamily: "'Montserrat', sans-serif", fontSize: 11, letterSpacing: '0.25em',
+              fontFamily: "'Montserrat', sans-serif", fontSize: 10, letterSpacing: '0.2em',
               textTransform: 'uppercase', color: '#e86657', border: '1px solid #c0392b',
-              padding: '16px 40px', transition: 'all 0.3s', display: 'inline-block',
+              padding: '11px 28px', transition: 'all 0.3s', display: 'inline-block',
+              borderRadius: '20px',
             }}
             onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.borderColor = '#c0392b'; (e.currentTarget as HTMLElement).style.color = '#f5f0eb'; (e.currentTarget as HTMLElement).style.background = 'rgba(192,57,43,0.1)'; }}
             onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.borderColor = 'rgba(192,57,43,0.4)'; (e.currentTarget as HTMLElement).style.color = '#c0392b'; (e.currentTarget as HTMLElement).style.background = 'transparent'; }}
@@ -125,7 +148,7 @@ const Hero: React.FC = () => {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 4.2 }}
-          style={{ position: 'absolute', bottom: -120, left: '50%', transform: 'translateX(-50%)', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 8 }}
+          style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 8 }}
         >
           <span style={{ fontFamily: "'Poppins', sans-serif", fontSize: 12, letterSpacing: '0.4em', color: '#9c9c97', textTransform: 'uppercase' }}>Scroll</span>
           <motion.div
@@ -134,7 +157,7 @@ const Hero: React.FC = () => {
             style={{ width: 1, height: 48, background: 'linear-gradient(180deg, #c0392b, transparent)' }}
           />
         </motion.div>
-      </motion.div>
+      </div>
 
       {/* Floating tags */}
       {['Branding', 'Logo', 'Packaging', 'Print'].map((tag, i) => (

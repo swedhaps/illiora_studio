@@ -45,7 +45,7 @@ const ImageWrapper = styled(Box)({
   paddingBottom: "120%",
   position: "relative",
   background: "linear-gradient(135deg, #111111 0%, #181818 100%)",
-  border: "1px solid rgba(192,57,43,0.15)",
+  border: "1px solid rgba(0, 0, 0, 0.15)",
   overflow: "hidden",
 });
 
@@ -151,7 +151,7 @@ const About: React.FC = () => {
             initial={{ opacity: 0, x: -60 }}
             animate={inView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.9, ease: "easeOut" }}
-            style={{ position: "relative" }}
+            style={{ position: "relative" , border:"none"}}
           >
             <ImageWrapper>
               <Box
@@ -161,9 +161,10 @@ const About: React.FC = () => {
                   display: "flex",
                   alignItems: "center",
                   justifyContent: "center",
+                  // border: "none"
                 }}
               >
-                <CoverImage src={me1} alt="About Illiora Studio" />
+                <CoverImage src={me1} alt="About Illiora Studio" sx={{backgroundColor:"none"}} />
               </Box>
             </ImageWrapper>
           </motion.div>

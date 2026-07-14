@@ -44,7 +44,7 @@ const fabActions = [
   {
     icon: <PhoneSVG />,
     label: "WhatsApp",
-    href: "https://wa.me/919947056104", // WhatsApp chat
+    href: "https://wa.me/916235048747", // WhatsApp chat
   },
   {
   icon: <EmailSVG />,

@@ -1,5 +1,5 @@
 import React from "react";
-import { motion } from "framer-motion";
+// import { motion } from "framer-motion";
 import logo_red from "../assets/logo_white.png";
 
 const Footer: React.FC = () => {
@@ -85,7 +85,7 @@ const Footer: React.FC = () => {
             marginBottom: 24,
           }}
         >
-          <motion.div
+          {/* <motion.div
             animate={{ x: [0, -1000] }}
             transition={{ duration: 18, repeat: Infinity, ease: "linear" }}
             style={{
@@ -120,7 +120,7 @@ const Footer: React.FC = () => {
                   {item} ✦
                 </span>
               ))}
-          </motion.div>
+          </motion.div> */}
         </div>
 
         <div

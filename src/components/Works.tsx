@@ -2,38 +2,15 @@ import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Box, Typography } from "@mui/material";
 import { styled } from "@mui/material/styles";
+import { useNavigate } from "react-router-dom";
 import { useInView } from "../hooks/useInView";
-import work1 from "../assets/works/work1.jpeg";
-
-// ─── Types ────────────────────────────────────────────────────────────────────
-
-interface Work {
-  id: number;
-  title: string;
-  category: string;
-  tag: string;
-  year: string;
-  colors: string[];
-  image: string;
-}
+import { works, Work } from "../data/worksData";
 
 // ─── Data ─────────────────────────────────────────────────────────────────────
 
 const categories: string[] = [
   "All", "Logo", "Packaging", "Flyer", "Brochure",
-  "Menu", "Banner", "Visiting Card", "Poster",
-];
-
-const works: Work[] = [
-  { id: 1, title: "Noir Coffee Co.",  category: "Logo",         tag: "Brand Identity",   year: "2024", colors: ["#1a1a1a", "#c9a96e", "#f5f0eb"], image: work1 },
-  { id: 2, title: "Velvet Box",       category: "Packaging",    tag: "Luxury Packaging", year: "2024", colors: ["#2d1b1b", "#c0392b", "#f5e6d3"], image: work1 },
-  { id: 3, title: "Ember Events",     category: "Flyer",        tag: "Event Promo",      year: "2024", colors: ["#0d0d0d", "#e74c3c", "#ffffff"],  image: work1 },
-  { id: 4, title: "Aurum Finance",    category: "Brochure",     tag: "Corporate",        year: "2023", colors: ["#111111", "#c9a96e", "#f5f0eb"], image: work1 },
-  { id: 5, title: "The Spice Trail",  category: "Menu",         tag: "Restaurant Brand", year: "2023", colors: ["#1a0f0f", "#c0392b", "#f5deb3"], image: work1 },
-  { id: 6, title: "Luxe Interiors",   category: "Banner",       tag: "Social Media",     year: "2023", colors: ["#0a0a0a", "#b0a89e", "#ffffff"],  image: work1 },
-  { id: 7, title: "Studio Muse",      category: "Visiting Card",tag: "Creative Agency",  year: "2024", colors: ["#0d0d0d", "#c0392b", "#f5f0eb"], image: work1 },
-  { id: 8, title: "Petal & Pine",     category: "Logo",         tag: "Floral Brand",     year: "2023", colors: ["#1a1a1a", "#c9a96e", "#e8ddd0"], image: work1 },
-  { id: 9, title: "Dark Matter",      category: "Packaging",    tag: "Coffee Brand",     year: "2024", colors: ["#080808", "#c0392b", "#f5f0eb"], image: work1 },
+  "Menu", "Banner", "Visiting Card", "Poster", "Catalogue", "Label","Letter Head",
 ];
 
 // ─── Styled Components ────────────────────────────────────────────────────────
@@ -185,6 +162,7 @@ interface WorkCardProps {
 
 const WorkCard: React.FC<WorkCardProps> = ({ work, index, inView }) => {
   const [hov, setHov] = useState<boolean>(false);
+  const navigate = useNavigate();
 
   return (
     <motion.div
@@ -193,6 +171,7 @@ const WorkCard: React.FC<WorkCardProps> = ({ work, index, inView }) => {
       transition={{ duration: 0.6, delay: index * 0.1 }}
       onMouseEnter={() => setHov(true)}
       onMouseLeave={() => setHov(false)}
+      onClick={() => navigate(`/works/${work.id}`)}
       style={{ cursor: "none", position: "relative", overflow: "hidden" }}
     >
       <CardImageWrapper>

@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import About from './components/About';
@@ -8,7 +9,8 @@ import Services from './components/Services';
 import Works from './components/Works';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
-// import './index.css';
+import WorkDetail from './pages/WorkDetail';
+import './index.css';
 import logo_red from './assets/logo_red_and_white.png';
 import { Box, Fab, Tooltip } from '@mui/material';
 
@@ -39,10 +41,27 @@ const fabActions = [
   { icon: <EmailSVG />,     label: 'Email',     href: 'mailto:hello@illiora.studio',              title: 'hello@illiora.studio' },
 ];
 
+// ─── Homepage: bundles all the single-page sections ───────────────────────────
+function Home() {
+  return (
+    <>
+      <Hero />
+      <About />
+      <Services />
+      {/* <Experience /> */}
+      <Works />
+      <Contact />
+      <Footer />
+    </>
+  );
+}
+
 function App() {
   const [cursorPos, setCursorPos] = useState({ x: -100, y: -100 });
   const [followerPos, setFollowerPos] = useState({ x: -100, y: -100 });
-  const [loading, setLoading] = useState(true);  useEffect(() => {
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
     const timer = setTimeout(() => setLoading(false), 2400);
     return () => clearTimeout(timer);
   }, []);
@@ -105,13 +124,10 @@ function App() {
 
       <div style={{ cursor: 'none' }}>
         <Navbar />
-        <Hero />
-        <About />
-        <Services />
-        {/* <Experience /> */}
-        <Works />
-        <Contact />
-        <Footer />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/works/:id" element={<WorkDetail />} />
+        </Routes>
       </div>
 
       {/* FABs — always visible */}

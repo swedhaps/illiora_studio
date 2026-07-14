@@ -54,25 +54,17 @@ const Footer: React.FC = () => {
               },
               { label: "Email", href: "mailto:hello@illiora.studio" },
             ].map((link) => ( */}
-              <a
-                // key={link.label}
-                href="#"
-                // target="_blank"
-                // rel="noopener noreferrer"
-                style={{
-                  fontFamily: "'Poppins', sans-serif",
-                  fontSize: 9,
-                  letterSpacing: "0.3em",
-                  textTransform: "uppercase",
-                  color: "#9c9c97",
-                  transition: "color 0.3s",
-                }}
-                onMouseEnter={(e) => (e.currentTarget.style.color = "#c0392b")}
-                onMouseLeave={(e) => (e.currentTarget.style.color = "#9c9c97")}
-              >
-                {/* {link.label} */}
-                AVAILABLE FOR PROJECTS
-              </a>
+             <span
+  style={{
+    fontFamily: "'Poppins', sans-serif",
+    fontSize: 9,
+    letterSpacing: "0.3em",
+    textTransform: "uppercase",
+    color: "#9c9c97",
+  }}
+>
+  AVAILABLE FOR PROJECTS
+</span>
             {/* ))} */}
           </div>
         </div>

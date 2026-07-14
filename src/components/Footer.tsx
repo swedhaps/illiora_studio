@@ -56,7 +56,7 @@ const Footer: React.FC = () => {
             ].map((link) => ( */}
               <a
                 // key={link.label}
-                // href={link.href}
+                href="#"
                 // target="_blank"
                 // rel="noopener noreferrer"
                 style={{

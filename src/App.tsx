@@ -12,7 +12,7 @@ import Footer from './components/Footer';
 import WorkDetail from './pages/WorkDetail';
 import './index.css';
 import logo_red from './assets/logo_red_and_white.png';
-import { Box, Fab, Tooltip } from '@mui/material';
+import { Box, Fab } from '@mui/material';
 
 const InstagramSVG = () => (
   <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">

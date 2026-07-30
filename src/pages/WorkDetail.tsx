@@ -106,7 +106,7 @@ const WorkDetail: React.FC = () => {
           </Typography>
         </Box>
 
-        {/* Gallery — if the project has multiple images, show them all; otherwise fall back to the single thumbnail */}
+        {/* Gallery — if the project has multiple images, show them all at their natural size; otherwise fall back to the single thumbnail */}
         {work.gallery && work.gallery.length > 0 ? (
           <Box
             sx={{
@@ -124,8 +124,7 @@ const WorkDetail: React.FC = () => {
                 alt={`${work.title} ${i + 1}`}
                 sx={{
                   width: "100%",
-                  height: 360,
-                  objectFit: "cover",
+                  height: "auto",
                   display: "block",
                 }}
               />
@@ -138,8 +137,7 @@ const WorkDetail: React.FC = () => {
             alt={work.title}
             sx={{
               width: "100%",
-              maxHeight: 640,
-              objectFit: "cover",
+              height: "auto",
               mb: "56px",
               display: "block",
             }}

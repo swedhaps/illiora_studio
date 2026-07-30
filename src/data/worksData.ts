@@ -88,7 +88,7 @@ export const works: Work[] = [
   year: "2026",
   colors: ["#111111", "#c9a96e", "#f5f0eb"],
   image: menu2, // Thumbnail shown in the Works grid
-  gallery: [menu1, menu2, menu3, menu4, menu5], // All menu pages
+  gallery: [menu1, menu2, menu5, menu4, menu3], // All menu pages
   description: "A premium multi-page restaurant menu designed with a clean layout, refined typography, and elegant visual hierarchy to enhance the dining experience.",
 },
 
@@ -171,10 +171,11 @@ export const works: Work[] = [
     brochure5,
     brochure6,
     brochure7,
+    brochure11,
+
+    brochure10,
     brochure8,
     brochure9,
-    brochure10,
-    brochure11,
   ],
   description:
     "A premium multi-page corporate brochure featuring clean layouts, refined typography, and a modern editorial design.",

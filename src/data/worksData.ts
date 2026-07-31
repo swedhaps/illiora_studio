@@ -98,7 +98,7 @@ export const works: Work[] = [
     title: "Brochure Designs",
     category: "Brochure",
     tag: "Revive Rise",
-    year: "2023",
+    year: "2026",
     colors: ["#111111", "#c9a96e", "#f5f0eb"],
     image: brochure2, // thumbnail shown in the Works grid
     gallery: [brochure1, brochure2, brochure3, brochure4], // full set shown on the detail page

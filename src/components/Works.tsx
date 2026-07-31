@@ -1,17 +1,10 @@
-import React, { useState } from "react";
+import React from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Box, Typography } from "@mui/material";
 import { styled } from "@mui/material/styles";
 import { useNavigate } from "react-router-dom";
 import { useInView } from "../hooks/useInView";
-import { works, Work } from "../data/worksData";
-
-// ─── Data ─────────────────────────────────────────────────────────────────────
-
-const categories: string[] = [
-  "All", "Logo", "Packaging", "Flyer", "Brochure",
-  "Menu", "Banner", "Visiting Card", "Poster", "Catalogue", "Label","Letter Head",
-];
+import { works } from "../data/worksData";
 
 // ─── Styled Components ────────────────────────────────────────────────────────
 
@@ -44,31 +37,13 @@ const HeadlineAccent = styled("em")({
   color: "#c0392b",
 });
 
-const FilterButton = styled("button")<{ active: boolean }>(({ active }) => ({
-  fontFamily: "var(--font-body, 'Poppins', sans-serif)",
-  fontSize: 9,
-  letterSpacing: "0.25em",
-  textTransform: "uppercase",
-  padding: "8px 18px",
-  border: "1px solid",
-  borderColor: active ? "#c0392b" : "rgba(192,57,43,0.2)",
-  background: active ? "#c0392b" : "transparent",
-  color: active ? "#f5f0eb" : "#9c9c97",
-  cursor: "none",
-  transition: "all 0.3s",
-  borderRadius: "999px", // pill shape — consistent with tags in Services
-  "&:hover": {
-    borderColor: "#c0392b",
-    color: "#f5f0eb",
-  },
-}));
-
 const CardImageWrapper = styled(Box)({
   background: "#0d0d0d",
   display: "flex",
   alignItems: "center",
   justifyContent: "center",
   overflow: "hidden",
+  position: "relative",
 });
 
 const CardImage = styled("img")({
@@ -87,7 +62,7 @@ const HoverOverlay = styled(motion.div)({
   justifyContent: "center",
   flexDirection: "column",
   gap: 16,
-  opacity: 0, // hidden by default; framer-motion animate drives visibility
+  opacity: 0,
 });
 
 const OverlayLabel = styled(Typography)({
@@ -128,12 +103,6 @@ const CardMeta = styled(Typography)({
   marginTop: "4px",
 });
 
-const CardYear = styled(Typography)({
-  fontFamily: "var(--font-body, 'Poppins', sans-serif)",
-  fontSize: 16,
-  color: "rgba(192,57,43,0.4)",
-});
-
 const CtaLink = styled("a")({
   fontFamily: "var(--font-body, 'Poppins', sans-serif)",
   fontSize: 11,
@@ -145,23 +114,70 @@ const CtaLink = styled("a")({
   display: "inline-block",
   transition: "all 0.3s",
   textDecoration: "none",
-  borderRadius: "999px", // <-- Add this
+  borderRadius: "999px",
   "&:hover": {
     background: "rgba(192,57,43,0.1)",
     borderColor: "#c0392b",
   },
 });
 
-// ─── WorkCard ─────────────────────────────────────────────────────────────────
+// ─── Group works by category ───────────────────────────────────────────────────
 
-interface WorkCardProps {
-  work: Work;
+interface CategoryGroup {
+  category: string;
+  count: number;
+  thumbnail: string;
+}
+
+// ─── Custom category display order ─────────────────────────────────────────────
+// Categories not listed here (or not yet present in worksData) fall to the end,
+// in the order they first appear in the data.
+const CATEGORY_ORDER: string[] = [
+  "Top Branding",
+  "Logo",
+  "Company Profile",
+  "Brochure",
+  "Flyer",
+  "Poster",
+  "Menu",
+  "Visiting Card",
+  "Banner",
+  "Letter Head",
+  "Exhibition Booths",
+];
+
+function getCategoryGroups(): CategoryGroup[] {
+  const map = new Map<string, CategoryGroup>();
+  works.forEach((w) => {
+    if (!map.has(w.category)) {
+      map.set(w.category, { category: w.category, count: 0, thumbnail: w.image });
+    }
+    map.get(w.category)!.count += 1;
+  });
+
+  const groups = Array.from(map.values());
+
+  groups.sort((a, b) => {
+    const aIndex = CATEGORY_ORDER.indexOf(a.category);
+    const bIndex = CATEGORY_ORDER.indexOf(b.category);
+    const aRank = aIndex === -1 ? CATEGORY_ORDER.length : aIndex;
+    const bRank = bIndex === -1 ? CATEGORY_ORDER.length : bIndex;
+    return aRank - bRank;
+  });
+
+  return groups;
+}
+
+// ─── CategoryCard ──────────────────────────────────────────────────────────────
+
+interface CategoryCardProps {
+  group: CategoryGroup;
   index: number;
   inView: boolean;
 }
 
-const WorkCard: React.FC<WorkCardProps> = ({ work, index, inView }) => {
-  const [hov, setHov] = useState<boolean>(false);
+const CategoryCard: React.FC<CategoryCardProps> = ({ group, index, inView }) => {
+  const [hov, setHov] = React.useState<boolean>(false);
   const navigate = useNavigate();
 
   return (
@@ -171,33 +187,29 @@ const WorkCard: React.FC<WorkCardProps> = ({ work, index, inView }) => {
       transition={{ duration: 0.6, delay: index * 0.1 }}
       onMouseEnter={() => setHov(true)}
       onMouseLeave={() => setHov(false)}
-      onClick={() => navigate(`/works/${work.id}`)}
+      onClick={() => navigate(`/works/category/${encodeURIComponent(group.category)}`)}
       style={{ cursor: "none", position: "relative", overflow: "hidden" }}
     >
       <CardImageWrapper>
         <CardImage
-          src={work.image}
-          alt={work.title}
+          src={group.thumbnail}
+          alt={group.category}
           style={{ transform: hov ? "scale(1.06)" : "scale(1)" }}
         />
-        <HoverOverlay
-          animate={{ opacity: hov ? 1 : 0 }}
-          transition={{ duration: 0.3 }}
-        >
-          <OverlayLabel>View Project</OverlayLabel>
+        <HoverOverlay animate={{ opacity: hov ? 1 : 0 }} transition={{ duration: 0.3 }}>
+          <OverlayLabel>{group.count > 1 ? "View Projects" : "View Project"}</OverlayLabel>
           <Box sx={{ width: 40, height: "1px", background: "#c0392b" }} />
-          <OverlayTitle>{work.title}</OverlayTitle>
+          <OverlayTitle>{group.category}</OverlayTitle>
         </HoverOverlay>
       </CardImageWrapper>
 
       <CardInfo>
         <Box>
-          <CardTitle>{work.title}</CardTitle>
-          {/* <CardMeta>
-           {work.tag}
-          </CardMeta> */}
+          <CardTitle>{group.category}</CardTitle>
+          <CardMeta>
+            {group.count} {group.count === 1 ? "Project" : "Projects"}
+          </CardMeta>
         </Box>
-        <CardYear>{work.year}</CardYear>
       </CardInfo>
     </motion.div>
   );
@@ -207,12 +219,7 @@ const WorkCard: React.FC<WorkCardProps> = ({ work, index, inView }) => {
 
 const Works: React.FC = () => {
   const [ref, inView] = useInView(0.05);
-  const [activeCategory, setActiveCategory] = useState<string>("All");
-
-  const filtered: Work[] =
-    activeCategory === "All"
-      ? works
-      : works.filter((w) => w.category === activeCategory);
+  const categoryGroups = getCategoryGroups();
 
   return (
     <SectionRoot id="works" ref={ref as React.Ref<HTMLElement>}>
@@ -233,33 +240,18 @@ const Works: React.FC = () => {
               justifyContent: "space-between",
               flexWrap: "wrap",
               gap: "24px",
-              mb: "40px",
             }}
           >
             <SectionHeadline>
-              Design{" "}
-              <HeadlineAccent>Portfolio</HeadlineAccent>
+              Design <HeadlineAccent>Portfolio</HeadlineAccent>
             </SectionHeadline>
-          </Box>
-
-          {/* Filter tabs */}
-          <Box sx={{ display: "flex", flexWrap: "wrap", gap: "8px" }}>
-            {categories.map((cat) => (
-              <FilterButton
-                key={cat}
-                active={activeCategory === cat}
-                onClick={() => setActiveCategory(cat)}
-              >
-                {cat}
-              </FilterButton>
-            ))}
           </Box>
         </motion.div>
 
-        {/* Grid */}
+        {/* Grid — one card per category */}
         <AnimatePresence mode="wait">
           <motion.div
-            key={activeCategory}
+            key="category-grid"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
@@ -270,8 +262,8 @@ const Works: React.FC = () => {
               gap: 24,
             }}
           >
-            {filtered.map((work, i) => (
-              <WorkCard key={work.id} work={work} index={i} inView={inView} />
+            {categoryGroups.map((group, i) => (
+              <CategoryCard key={group.category} group={group} index={i} inView={inView} />
             ))}
           </motion.div>
         </AnimatePresence>

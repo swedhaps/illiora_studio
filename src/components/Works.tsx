@@ -193,9 +193,9 @@ const WorkCard: React.FC<WorkCardProps> = ({ work, index, inView }) => {
       <CardInfo>
         <Box>
           <CardTitle>{work.title}</CardTitle>
-          <CardMeta>
+          {/* <CardMeta>
            {work.tag}
-          </CardMeta>
+          </CardMeta> */}
         </Box>
         <CardYear>{work.year}</CardYear>
       </CardInfo>

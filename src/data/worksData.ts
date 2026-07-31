@@ -82,7 +82,7 @@ export interface Work {
 export const works: Work[] = [
       {
   id: 1,
-  title: "Restaurant Menu",
+  title: "Menu Card Designs",
   category: "Menu",
   tag: "Bee Yen",
   year: "2026",
@@ -95,7 +95,7 @@ export const works: Work[] = [
  
   {
     id: 2,
-    title: "Nurse-Led Complex Home care",
+    title: "Brochure Designs",
     category: "Brochure",
     tag: "Revive Rise",
     year: "2023",
@@ -107,7 +107,7 @@ export const works: Work[] = [
 
   {
     id: 3,
-    title: "BeeYen Business Card",
+    title: "Visiting Card Designs",
     category: "Visiting Card",
     tag: "Bee Yen",
     year: "2026",
@@ -119,7 +119,7 @@ export const works: Work[] = [
 
 {
   id: 4,
-  title: "The Hoper Atelier",
+  title: "Catalogue Designs",
   category: "Catalogue",
   tag: "Hoper",
   year: "2026",
@@ -130,7 +130,7 @@ export const works: Work[] = [
 },
 {
   id: 15,
-  title: "Campaign Poster Design",
+  title: "Poster Designs",
   category: "Poster",
   tag: "Bee yen",
   year: "2026",
@@ -150,7 +150,7 @@ export const works: Work[] = [
 },
 {
   id: 5,
-  title: "Gardene Product Label Collection",
+  title: "Product Label Designs",
   category: "Label",
   tag: "Gardene",
   year: "2026",
@@ -161,7 +161,7 @@ export const works: Work[] = [
 },
 {
   id: 6,
-  title: "The Journey of Success",
+  title: "Brochure Designs",
   category: "Brochure",
   tag: "Thalim",
   year: "2026",
@@ -182,7 +182,7 @@ export const works: Work[] = [
 },
 {
   id: 7,
-  title: "Corporate Brochure",
+  title: "Brochure Designs",
   category: "Brochure",
   tag: "Cader",
   year: "2026",
@@ -197,10 +197,10 @@ export const works: Work[] = [
   description:
     "A premium multi-page corporate brochure designed with modern layouts, elegant typography, and a strong visual hierarchy.",
 },
-  { id: 8, title: "Grand Opening Flyer",  category: "Flyer",   gallery:[    flyer1, flyer2]   ,   tag: "Flyer",   year: "2025", colors: ["#1a1a1a", "#c9a96e", "#f5f0eb"], image: flyer1, description: "A minimalist brand identity for a specialty coffee roaster, blending dark elegance with warm gold accents." },
+  { id: 8, title: "Flyer Designs",  category: "Flyer",   gallery:[    flyer1, flyer2]   ,   tag: "Flyer",   year: "2025", colors: ["#1a1a1a", "#c9a96e", "#f5f0eb"], image: flyer1, description: "A minimalist brand identity for a specialty coffee roaster, blending dark elegance with warm gold accents." },
   {
   id: 9,
-  title: "Corporate Letterhead",
+  title: "Letter Head Designs",
   category: "Letter Head",
   tag: "Cocoa buds",
   year: "2026",
@@ -216,7 +216,7 @@ export const works: Work[] = [
 },
 {
   id: 13,
-  title: "Ice Cream Poster Design",
+  title: "Poster Designs",
   category: "Poster",
   tag: "Cream Likes",
   year: "2026",
@@ -238,7 +238,7 @@ export const works: Work[] = [
 },
 {
   id: 14,
-  title: "Campaign Poster Design",
+  title: "Poster Designs",
   category: "Poster",
   tag: "D Laban",
   year: "2026",
@@ -259,7 +259,7 @@ export const works: Work[] = [
 },
 {
   id: 10,
-  title: "Agarbati Package Design",
+  title: "Package Designs",
   category: "Packaging",
   tag: "London bridge",
   year: "2026",
@@ -274,7 +274,7 @@ export const works: Work[] = [
 },
 {
   id: 11,
-  title: "Kerala Achappam Package Design",
+  title: "Package Designs",
   category: "Packaging",
   tag: "Foodies",
   year: "2026",
@@ -288,7 +288,7 @@ export const works: Work[] = [
 },
 {
   id: 12,
-  title: "Thalim Package Design",
+  title: "Package Designs",
   category: "Packaging",
   tag: "Thalim",
   year: "2026",

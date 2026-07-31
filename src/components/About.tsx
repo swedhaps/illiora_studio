@@ -123,6 +123,26 @@ const StatLabel = styled(Typography)({
   marginTop: "4px",
 });
 
+const DesignerName = styled(Typography)({
+  fontFamily: "var(--font-body, 'Poppins', sans-serif)",
+  fontSize: 13,
+  letterSpacing: "0.2em",
+  color: "#f5f0eb",
+  textTransform: "uppercase",
+  textAlign: "center",
+  marginTop: "20px",
+});
+
+const DesignerTitle = styled(Typography)({
+  fontFamily: "var(--font-body, 'Poppins', sans-serif)",
+  fontSize: 10,
+  letterSpacing: "0.15em",
+  color: "#c0392b",
+  textTransform: "uppercase",
+  textAlign: "center",
+  marginTop: "6px",
+});
+
 // ─── Component ────────────────────────────────────────────────────────────────
 
 const About: React.FC = () => {
@@ -167,6 +187,10 @@ const About: React.FC = () => {
                 <CoverImage src={me1} alt="About Illiora Studio" sx={{backgroundColor:"none"}} />
               </Box>
             </ImageWrapper>
+
+            {/* Designer name */}
+            <DesignerName>Ashwanth Koyileriyan</DesignerName>
+            <DesignerTitle>Founder & Designer</DesignerTitle>
           </motion.div>
 
           {/* Right: Text */}
@@ -186,7 +210,7 @@ const About: React.FC = () => {
             <Divider />
 
             <BodyText>
-              Illiora is an independent design studio led by Ashwanth,
+              Illiora is an independent design studio led by Ashwanth Koyileriyan,
               specializing in building refined brand identities and visual
               systems. With over 5 years of experience, the studio focuses on
               creating work that is not only visually compelling but
